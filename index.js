@@ -9,11 +9,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  console.log("A new user has connected", socket.id);
-
   socket.on("user-message", (message) => {
-    console.log("Message received:", message);
-
     io.emit("message", message);
   });
 });
